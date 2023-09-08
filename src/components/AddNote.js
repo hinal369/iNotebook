@@ -5,7 +5,8 @@ export default function AddNote() {
     const context = useContext(noteContext);
     const { addNote } = context;
 
-    const [note, setNote] = useState({title: "", description: "", tag: "default"})
+    const [note, setNote] = useState({title: "", description: "", tag: "default"});
+
     const handleClick = (e) => {
         e.preventDefault();
         addNote(note.title, note.description, note.title);
@@ -24,6 +25,10 @@ export default function AddNote() {
             <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
                 <input type="text" className="form-control" id="description" name="description" placeholder="Description" onChange={onChange} />
+            </div>
+            <div className="mb-3">
+                <label htmlFor="tag" className="form-label">Tag</label>
+                <input type="text" className="form-control" id="tag" name="tag" placeholder="Tag" onChange={onChange} />
             </div>
             <button type="button" className="btn btn-primary" onClick={handleClick }>Add Note</button>
         </div>

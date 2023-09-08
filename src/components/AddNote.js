@@ -20,17 +20,17 @@ export default function AddNote() {
             <h1>Add a Note</h1>
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">Title</label>
-                <input type="text" className="form-control" id="title" name="title" placeholder="Title" onChange={onChange} />
+                <input type="text" className="form-control" id="title" name="title" placeholder="Title" onChange={onChange} minLength={5} required/>
             </div>
             <div className="mb-3">
                 <label htmlFor="description" className="form-label">Description</label>
-                <input type="text" className="form-control" id="description" name="description" placeholder="Description" onChange={onChange} />
+                <input type="text" className="form-control" id="description" name="description" placeholder="Description" onChange={onChange} minLength={5} required />
             </div>
             <div className="mb-3">
                 <label htmlFor="tag" className="form-label">Tag</label>
-                <input type="text" className="form-control" id="tag" name="tag" placeholder="Tag" onChange={onChange} />
+                <input type="text" className="form-control" id="tag" name="tag" placeholder="Tag" onChange={onChange} minLength={5} required />
             </div>
-            <button type="button" className="btn btn-primary" onClick={handleClick }>Add Note</button>
+            <button disabled={note.title.length < 5 || note.description.length < 5}  type="button" className="btn btn-primary" onClick={handleClick }>Add Note</button>
         </div>
     )
 }

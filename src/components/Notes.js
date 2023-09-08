@@ -41,27 +41,27 @@ export default function Notes() {
                 <div className="modal-dialog">
                     <div className="modal-content">
                         <div className="modal-header">
-                            <h1 className="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                            <h1 className="modal-title fs-5" id="exampleModalLabel">Edit Notes</h1>
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             <div className="mb-3">
                                 <label htmlFor="etitle" className="form-label">Title</label>
-                                <input type="text" className="form-control" id="etitle" name="etitle" placeholder="Title" onChange={onChange} value={note.etitle}/>
+                                <input type="text" className="form-control" id="etitle" name="etitle" placeholder="Title" onChange={onChange} value={note.etitle} minLength={5} required/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="edescription" className="form-label">Description</label>
-                                <input type="text" className="form-control" id="edescription" name="edescription" placeholder="Description" onChange={onChange} value={note.edescription}/>
+                                <input type="text" className="form-control" id="edescription" name="edescription" placeholder="Description" onChange={onChange} value={note.edescription} minLength={5} required/>
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="etag" className="form-label">Tag</label>
-                                <input type="text" className="form-control" id="etag" name="etag" placeholder="Tag" onChange={onChange} value={note.etag} />
+                                <input type="text" className="form-control" id="etag" name="etag" placeholder="Tag" onChange={onChange} value={note.etag} minLength={5} required/>
                             </div>
                         </div>
 
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" ref={refClose}>Close</button>
-                            <button type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
+                            <button disabled={note.etitle.length<5 || note.edescription.length<5} type="button" className="btn btn-primary" onClick={handleClick}>Save changes</button>
                         </div>
                     </div>
                 </div>

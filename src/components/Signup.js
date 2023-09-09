@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function Signup() {
+export default function Signup(props) {
   const [credentials, setCredentials] = useState({name: "", email: "", password: "", cpassword: ""}); 
   const navigate = useNavigate();
 
@@ -22,16 +22,19 @@ export default function Signup() {
     const json = await response.json();
     
     if (json.success) {
-        localStorage.setItem('token', json.authtoken);
-        navigate('/');
+      localStorage.setItem('token', json.authtoken);
+      navigate('/');
+      props.showAlert("Account successfully created", "success")
     } else {
-        alert(json.error)
+        props.showAlert(json.error ? json.error : json?.errors[0]?.msg , "danger")
+
     }
   }
 
   const onChange = (e) => {
-        setCredentials({...credentials, [e.target.name]: e.target.value})
-    }
+    setCredentials({...credentials, [e.target.name]: e.target.value})
+  }
+  
   return (
     <div>
       <div className="mb-3">

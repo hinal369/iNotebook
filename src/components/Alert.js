@@ -1,11 +1,10 @@
 import React from 'react'
 
-export default function Alert() {
-    return (
-        <div>
-            <div className="alert alert-primary" role="alert">
-                A simple primary alert—check it out!
-            </div>
-        </div>
-    )
+export default function Alert(props) {
+  return (
+    props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+        <strong>{props.alert.type}</strong>: {props.alert.message}
+        <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  )
 }

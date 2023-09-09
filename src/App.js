@@ -11,7 +11,7 @@ import { useState } from "react";
 function App() {
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type) => {{
+  const showAlert = (message, type) => {
     setAlert({
       message: message,
       type: type
@@ -20,9 +20,8 @@ function App() {
     setTimeout( () => {
       setAlert(null);
     }, 1500)
-  }}
+  }
 
- 
   return (
     <NoteState>
       <BrowserRouter>

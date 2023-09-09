@@ -31,6 +31,7 @@ export default function Login(props) {
 
     return (
         <div>
+            <h2>Login</h2>
             <div className="mb-3">
                 <label htmlFor="email" className="form-label">Email address</label>
                 <input type="email" className="form-control" id="email" name="email" onChange={onChange} />

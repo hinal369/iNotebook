@@ -37,6 +37,7 @@ export default function Signup(props) {
   
   return (
     <div>
+      <h2>Create an Account</h2>
       <div className="mb-3">
         <label htmlFor="name" className="form-label">Full Name</label>
         <input type="text" className="form-control" id="name" name="name" onChange={onChange}  />
